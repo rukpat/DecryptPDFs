@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitReorder", "SplitReorder\SplitReorder.csproj", "{242FD0E1-310C-464E-80CA-93CD7CE829A9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptDecrypt", "EncryptDecrypt\EncryptDecrypt.csproj", "{4572ACC6-B4A9-4A68-8A13-A83DBA76B626}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{242FD0E1-310C-464E-80CA-93CD7CE829A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{242FD0E1-310C-464E-80CA-93CD7CE829A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{242FD0E1-310C-464E-80CA-93CD7CE829A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{242FD0E1-310C-464E-80CA-93CD7CE829A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4572ACC6-B4A9-4A68-8A13-A83DBA76B626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4572ACC6-B4A9-4A68-8A13-A83DBA76B626}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4572ACC6-B4A9-4A68-8A13-A83DBA76B626}.Release|Any CPU.ActiveCfg = Release|Any CPU

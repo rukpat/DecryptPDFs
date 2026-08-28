@@ -45,7 +45,22 @@
             buttonDecrypt = new Button();
             buttonClose = new Button();
             checkBoxRecurseDir = new CheckBox();
+            panel1 = new Panel();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            labelCountError = new Label();
+            labelCountPasswordProtected = new Label();
+            labelCountHasSecuritySettings = new Label();
+            labelCountNoSecurity = new Label();
+            checkBoxRemoveSecurity = new CheckBox();
+            btnOpenPWDMgr = new Button();
+            statusStrip1 = new StatusStrip();
+            statusLabel = new ToolStripStatusLabel();
             groupBoxOverwrite.SuspendLayout();
+            panel1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // listFilesFolders
@@ -60,7 +75,7 @@
             listFilesFolders.Location = new Point(251, 12);
             listFilesFolders.Name = "listFilesFolders";
             listFilesFolders.ShowItemToolTips = true;
-            listFilesFolders.Size = new Size(662, 530);
+            listFilesFolders.Size = new Size(661, 542);
             listFilesFolders.TabIndex = 1;
             listFilesFolders.UseCompatibleStateImageBehavior = false;
             listFilesFolders.View = View.Details;
@@ -90,7 +105,7 @@
             linkLabelFolderName.AutoSize = true;
             linkLabelFolderName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             linkLabelFolderName.LinkColor = Color.FromArgb(128, 128, 255);
-            linkLabelFolderName.Location = new Point(251, 558);
+            linkLabelFolderName.Location = new Point(251, 585);
             linkLabelFolderName.Name = "linkLabelFolderName";
             linkLabelFolderName.Size = new Size(51, 15);
             linkLabelFolderName.TabIndex = 7;
@@ -103,7 +118,7 @@
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(788, 558);
+            label1.Location = new Point(787, 585);
             label1.Name = "label1";
             label1.Size = new Size(125, 15);
             label1.TabIndex = 9;
@@ -129,15 +144,14 @@
             groupBoxOverwrite.Controls.Add(radioButtonPrefix);
             groupBoxOverwrite.Controls.Add(textBoxOverwriteString);
             groupBoxOverwrite.Controls.Add(radioButtonSuffix);
-            groupBoxOverwrite.Controls.Add(checkBoxOverwrite);
             groupBoxOverwrite.FlatStyle = FlatStyle.Popup;
             groupBoxOverwrite.ForeColor = Color.WhiteSmoke;
-            groupBoxOverwrite.Location = new Point(12, 115);
+            groupBoxOverwrite.Location = new Point(12, 179);
             groupBoxOverwrite.Name = "groupBoxOverwrite";
             groupBoxOverwrite.Size = new Size(225, 99);
             groupBoxOverwrite.TabIndex = 10;
             groupBoxOverwrite.TabStop = false;
-            groupBoxOverwrite.Text = "     Overwrite        ";
+            groupBoxOverwrite.Text = "     Overwrite     ";
             groupBoxOverwrite.Visible = false;
             // 
             // radioButtonPrefix
@@ -146,7 +160,7 @@
             radioButtonPrefix.Checked = true;
             radioButtonPrefix.Location = new Point(17, 28);
             radioButtonPrefix.Name = "radioButtonPrefix";
-            radioButtonPrefix.Size = new Size(55, 19);
+            radioButtonPrefix.Size = new Size(54, 19);
             radioButtonPrefix.TabIndex = 3;
             radioButtonPrefix.TabStop = true;
             radioButtonPrefix.Text = "Prefix";
@@ -171,7 +185,7 @@
             radioButtonSuffix.AutoSize = true;
             radioButtonSuffix.Location = new Point(153, 28);
             radioButtonSuffix.Name = "radioButtonSuffix";
-            radioButtonSuffix.Size = new Size(55, 19);
+            radioButtonSuffix.Size = new Size(54, 19);
             radioButtonSuffix.TabIndex = 4;
             radioButtonSuffix.Text = "Suffix";
             radioButtonSuffix.UseVisualStyleBackColor = true;
@@ -180,11 +194,8 @@
             // checkBoxOverwrite
             // 
             checkBoxOverwrite.AutoSize = true;
-            checkBoxOverwrite.Checked = true;
-            checkBoxOverwrite.CheckState = CheckState.Checked;
-            checkBoxOverwrite.Location = new Point(-5, 0);
+            checkBoxOverwrite.Location = new Point(11, 175);
             checkBoxOverwrite.Name = "checkBoxOverwrite";
-            checkBoxOverwrite.RightToLeft = RightToLeft.Yes;
             checkBoxOverwrite.Size = new Size(98, 19);
             checkBoxOverwrite.TabIndex = 2;
             checkBoxOverwrite.Text = "Overwrite File";
@@ -201,7 +212,7 @@
             buttonDecrypt.ForeColor = Color.Black;
             buttonDecrypt.Image = Properties.Resources.nS16;
             buttonDecrypt.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDecrypt.Location = new Point(138, 543);
+            buttonDecrypt.Location = new Point(138, 570);
             buttonDecrypt.Name = "buttonDecrypt";
             buttonDecrypt.Size = new Size(100, 30);
             buttonDecrypt.TabIndex = 2;
@@ -218,7 +229,7 @@
             buttonClose.FlatStyle = FlatStyle.Popup;
             buttonClose.ForeColor = Color.WhiteSmoke;
             buttonClose.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonClose.Location = new Point(12, 543);
+            buttonClose.Location = new Point(12, 570);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(100, 30);
             buttonClose.TabIndex = 6;
@@ -229,14 +240,156 @@
             // checkBoxRecurseDir
             // 
             checkBoxRecurseDir.AutoSize = true;
-            checkBoxRecurseDir.Location = new Point(7, 282);
+            checkBoxRecurseDir.Location = new Point(12, 65);
             checkBoxRecurseDir.Name = "checkBoxRecurseDir";
-            checkBoxRecurseDir.RightToLeft = RightToLeft.Yes;
             checkBoxRecurseDir.Size = new Size(118, 19);
             checkBoxRecurseDir.TabIndex = 11;
             checkBoxRecurseDir.Text = "Recurse Directory";
             checkBoxRecurseDir.UseVisualStyleBackColor = true;
             checkBoxRecurseDir.CheckedChanged += checkBoxRecurseDir_CheckedChanged;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(labelCountError);
+            panel1.Controls.Add(labelCountPasswordProtected);
+            panel1.Controls.Add(labelCountHasSecuritySettings);
+            panel1.Controls.Add(labelCountNoSecurity);
+            panel1.Location = new Point(12, 465);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(225, 89);
+            panel1.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.LightGreen;
+            label5.Location = new Point(-1, 74);
+            label5.Name = "label5";
+            label5.Size = new Size(117, 15);
+            label5.TabIndex = 19;
+            label5.Text = "Password Protected :";
+            label5.TextAlign = ContentAlignment.TopRight;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = Color.LightSteelBlue;
+            label4.Location = new Point(-2, 57);
+            label4.Name = "label4";
+            label4.Size = new Size(118, 15);
+            label4.TabIndex = 18;
+            label4.Text = "Has Security Setting :";
+            label4.TextAlign = ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.DimGray;
+            label3.Location = new Point(42, 13);
+            label3.Name = "label3";
+            label3.Size = new Size(74, 15);
+            label3.TabIndex = 17;
+            label3.Text = "No Security :";
+            label3.TextAlign = ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.RosyBrown;
+            label2.Location = new Point(78, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 16;
+            label2.Text = "Error :\r\n";
+            label2.TextAlign = ContentAlignment.TopRight;
+            // 
+            // labelCountError
+            // 
+            labelCountError.AutoSize = true;
+            labelCountError.ForeColor = Color.RosyBrown;
+            labelCountError.Location = new Point(124, 29);
+            labelCountError.Name = "labelCountError";
+            labelCountError.Size = new Size(25, 15);
+            labelCountError.TabIndex = 15;
+            labelCountError.Text = "999";
+            // 
+            // labelCountPasswordProtected
+            // 
+            labelCountPasswordProtected.AutoSize = true;
+            labelCountPasswordProtected.ForeColor = Color.LightGreen;
+            labelCountPasswordProtected.Location = new Point(124, 74);
+            labelCountPasswordProtected.Name = "labelCountPasswordProtected";
+            labelCountPasswordProtected.Size = new Size(25, 15);
+            labelCountPasswordProtected.TabIndex = 5;
+            labelCountPasswordProtected.Text = "999";
+            // 
+            // labelCountHasSecuritySettings
+            // 
+            labelCountHasSecuritySettings.AutoSize = true;
+            labelCountHasSecuritySettings.ForeColor = Color.LightSteelBlue;
+            labelCountHasSecuritySettings.Location = new Point(124, 57);
+            labelCountHasSecuritySettings.Name = "labelCountHasSecuritySettings";
+            labelCountHasSecuritySettings.Size = new Size(25, 15);
+            labelCountHasSecuritySettings.TabIndex = 4;
+            labelCountHasSecuritySettings.Text = "999";
+            // 
+            // labelCountNoSecurity
+            // 
+            labelCountNoSecurity.AutoSize = true;
+            labelCountNoSecurity.ForeColor = Color.DimGray;
+            labelCountNoSecurity.Location = new Point(124, 13);
+            labelCountNoSecurity.Name = "labelCountNoSecurity";
+            labelCountNoSecurity.Size = new Size(25, 15);
+            labelCountNoSecurity.TabIndex = 3;
+            labelCountNoSecurity.Text = "999";
+            // 
+            // checkBoxRemoveSecurity
+            // 
+            checkBoxRemoveSecurity.AutoSize = true;
+            checkBoxRemoveSecurity.Location = new Point(12, 133);
+            checkBoxRemoveSecurity.Name = "checkBoxRemoveSecurity";
+            checkBoxRemoveSecurity.Size = new Size(159, 19);
+            checkBoxRemoveSecurity.TabIndex = 13;
+            checkBoxRemoveSecurity.Text = "Remove Security Settings";
+            checkBoxRemoveSecurity.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenPWDMgr
+            // 
+            btnOpenPWDMgr.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnOpenPWDMgr.BackColor = Color.Transparent;
+            btnOpenPWDMgr.BackgroundImageLayout = ImageLayout.Zoom;
+            btnOpenPWDMgr.FlatAppearance.BorderColor = Color.WhiteSmoke;
+            btnOpenPWDMgr.FlatStyle = FlatStyle.Popup;
+            btnOpenPWDMgr.ForeColor = Color.WhiteSmoke;
+            btnOpenPWDMgr.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOpenPWDMgr.Location = new Point(12, 331);
+            btnOpenPWDMgr.Name = "btnOpenPWDMgr";
+            btnOpenPWDMgr.Size = new Size(225, 30);
+            btnOpenPWDMgr.TabIndex = 15;
+            btnOpenPWDMgr.Text = "&Password Manager...";
+            btnOpenPWDMgr.UseVisualStyleBackColor = false;
+            btnOpenPWDMgr.Click += btnOpenPWDMgr_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { statusLabel });
+            statusStrip1.Location = new Point(0, 612);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(924, 22);
+            statusStrip1.TabIndex = 16;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(909, 17);
+            statusLabel.Spring = true;
+            statusLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // EnD
             // 
@@ -245,23 +398,34 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
             CancelButton = buttonClose;
-            ClientSize = new Size(925, 585);
+            ClientSize = new Size(924, 634);
+            Controls.Add(btnOpenPWDMgr);
+            Controls.Add(checkBoxRemoveSecurity);
             Controls.Add(checkBoxRecurseDir);
             Controls.Add(buttonClose);
+            Controls.Add(checkBoxOverwrite);
             Controls.Add(buttonDecrypt);
             Controls.Add(textBoxPassword);
             Controls.Add(label1);
             Controls.Add(linkLabelFolderName);
             Controls.Add(listFilesFolders);
             Controls.Add(groupBoxOverwrite);
+            Controls.Add(panel1);
+            Controls.Add(statusStrip1);
             ForeColor = Color.WhiteSmoke;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             Name = "EnD";
             Text = "PDF Tools - Decrypt";
             FormClosing += EnD_FormClosing;
             Shown += EnD_Shown;
+            KeyDown += EnD_KeyDown;
             groupBoxOverwrite.ResumeLayout(false);
             groupBoxOverwrite.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,5 +448,18 @@
         private Button buttonDecrypt;
         private Button buttonClose;
         private CheckBox checkBoxRecurseDir;
+        private Panel panel1;
+        private CheckBox checkBoxRemoveSecurity;
+        private Label labelCountPasswordProtected;
+        private Label labelCountHasSecuritySettings;
+        private Label labelCountNoSecurity;
+        private Label labelCountError;
+        private Label label2;
+        private Label label3;
+        private Label label5;
+        private Label label4;
+        private Button btnOpenPWDMgr;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel statusLabel;
     }
 }

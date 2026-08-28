@@ -2,7 +2,7 @@
   "profiles": {
     "EncryptDecrypt": {
       "commandName": "Project",
-      "commandLineArgs": "\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\TestDirectoty\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 1 - Courrpt file.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 2 - Not a PDF .txt\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 3 - Not Encrypted.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 4 - Password Protected.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 5 - Security controls2.pdf\"",
+      "commandLineArgs": "\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\TestDirectoty\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 1 - Courrpt file.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 2 - Not a PDF .txt\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 3 - Not Encrypted.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 4 - Password Protected.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 5 - Security controls2.pdf\"\r\n\"D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF\\Test 3 - Password is Test.pdf\"",
       "workingDirectory": "D:\\OneDrive\\0RPPersonal Dev Projects\\Utilities\\archive\\TestPDF"
     }
   }

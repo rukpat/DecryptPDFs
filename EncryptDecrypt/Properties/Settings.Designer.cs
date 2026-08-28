@@ -121,13 +121,61 @@ namespace EncryptDecrypt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RecurseDirectory {
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int PMFormWidth {
             get {
-                return ((bool)(this["RecurseDirectory"]));
+                return ((int)(this["PMFormWidth"]));
             }
             set {
-                this["RecurseDirectory"] = value;
+                this["PMFormWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public int PMFormHeight {
+            get {
+                return ((int)(this["PMFormHeight"]));
+            }
+            set {
+                this["PMFormHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int PMFormLeft {
+            get {
+                return ((int)(this["PMFormLeft"]));
+            }
+            set {
+                this["PMFormLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int PMFormTop {
+            get {
+                return ((int)(this["PMFormTop"]));
+            }
+            set {
+                this["PMFormTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string PMFormWindowState {
+            get {
+                return ((string)(this["PMFormWindowState"]));
+            }
+            set {
+                this["PMFormWindowState"] = value;
             }
         }
     }
