@@ -130,6 +130,7 @@ namespace DecryptPDFs
             operationCts = new CancellationTokenSource();
             buttonDecrypt.Enabled = false;
             checkBoxRecurseDir.Enabled = false;
+            btnSelectFiles.Enabled = false;
             return operationCts.Token;
         }
 
@@ -137,6 +138,7 @@ namespace DecryptPDFs
         {
             buttonDecrypt.Enabled = true;
             checkBoxRecurseDir.Enabled = true;
+            btnSelectFiles.Enabled = true;
             operationCts?.Dispose();
             operationCts = null;
         }
@@ -791,6 +793,41 @@ namespace DecryptPDFs
             {
                 SetStatus("Password Manager closed.");
             }
+        }
+
+        // Covers launching with no file/folder args at all (e.g. from the Start Menu shortcut the
+        // installer adds) - without this there's no way to load anything into an empty list.
+        private void btnSelectFiles_Click(object sender, EventArgs e)
+        {
+            if (commandlineArgs is { Length: > 0 })
+            {
+                var result = MessageBox.Show(
+                    "The current file list will be replaced with your new selection. Continue?",
+                    "Replace Current List", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            using var openFileDialog = new OpenFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                Multiselect = true,
+                Title = "Select PDF Files"
+            };
+
+            if (openFileDialog.ShowDialog(this) != DialogResult.OK || openFileDialog.FileNames.Length == 0)
+            {
+                return;
+            }
+
+            commandlineArgs = openFileDialog.FileNames;
+            linkLabelFolderName.Text = Path.GetDirectoryName(commandlineArgs[0]) ?? string.Empty;
+            hasAutoDecryptedOnRecurseToggle = false;
+
+            RunScanAndAutoDecrypt(AutoDecryptWithStoredPasswords);
         }
     }
 }

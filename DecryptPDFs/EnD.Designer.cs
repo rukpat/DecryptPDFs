@@ -56,6 +56,7 @@
             labelCountNoSecurity = new Label();
             checkBoxRemoveSecurity = new CheckBox();
             btnOpenPWDMgr = new Button();
+            btnSelectFiles = new Button();
             statusStrip1 = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
             groupBoxOverwrite.SuspendLayout();
@@ -374,7 +375,24 @@
             btnOpenPWDMgr.Text = "&Password Manager...";
             btnOpenPWDMgr.UseVisualStyleBackColor = false;
             btnOpenPWDMgr.Click += btnOpenPWDMgr_Click;
-            // 
+            //
+            // btnSelectFiles
+            //
+            btnSelectFiles.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSelectFiles.BackColor = Color.Transparent;
+            btnSelectFiles.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSelectFiles.FlatAppearance.BorderColor = Color.WhiteSmoke;
+            btnSelectFiles.FlatStyle = FlatStyle.Popup;
+            btnSelectFiles.ForeColor = Color.WhiteSmoke;
+            btnSelectFiles.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSelectFiles.Location = new Point(12, 380);
+            btnSelectFiles.Name = "btnSelectFiles";
+            btnSelectFiles.Size = new Size(225, 30);
+            btnSelectFiles.TabIndex = 16;
+            btnSelectFiles.Text = "&Select PDF Files...";
+            btnSelectFiles.UseVisualStyleBackColor = false;
+            btnSelectFiles.Click += btnSelectFiles_Click;
+            //
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { statusLabel });
@@ -400,6 +418,7 @@
             CancelButton = buttonClose;
             ClientSize = new Size(924, 634);
             Controls.Add(btnOpenPWDMgr);
+            Controls.Add(btnSelectFiles);
             Controls.Add(checkBoxRemoveSecurity);
             Controls.Add(checkBoxRecurseDir);
             Controls.Add(buttonClose);
@@ -459,6 +478,7 @@
         private Label label5;
         private Label label4;
         private Button btnOpenPWDMgr;
+        private Button btnSelectFiles;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel statusLabel;
     }
