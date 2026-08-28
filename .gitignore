@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Per-developer debug launch args - holds local test-file paths, not useful to anyone else
+**/Properties/launchSettings.json

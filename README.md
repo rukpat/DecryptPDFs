@@ -1,8 +1,8 @@
-# PDF Tools - Decrypt
+# Decrypt PDFs
 
 A Windows utility for finding and removing password protection / security restrictions from PDF files in bulk, with a built-in password manager that learns your passwords and tries them automatically.
 
-Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send to" entry), and PDF Tools scans them, tells you which ones are password-protected or have restricted permissions, and can strip that protection - either with a password you type in, or automatically using passwords it already knows.
+Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send to" entry), and it scans them, tells you which ones are password-protected or have restricted permissions, and can strip that protection - either with a password you type in, or automatically using passwords it already knows.
 
 ## Features
 
@@ -24,15 +24,16 @@ Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send
 
 1. Download the latest release from the [Releases page](../../releases), or build from source:
    ```bash
-   git clone https://github.com/rukpat/PDFTools.git
-   cd PDFTools
+   git clone https://github.com/rukpat/DecryptPDFs.git
+   cd DecryptPDFs
    dotnet build
    ```
-2. To add it to Explorer's right-click menu, edit the paths in [`Resources/ContextMenuFiles.reg`](Resources/ContextMenuFiles.reg) and [`Resources/ContextMenuDirectories.reg`](Resources/ContextMenuDirectories.reg) to point at wherever you placed `EncryptDecrypt.exe`, then double-click each `.reg` file to import it.
+2. To add it to Explorer's right-click menu, edit the paths in [`Resources/ContextMenuFiles.reg`](Resources/ContextMenuFiles.reg) and [`Resources/ContextMenuDirectories.reg`](Resources/ContextMenuDirectories.reg) to point at wherever you placed `DecryptPDFs.exe`, then double-click each `.reg` file to import it.
+3. To add it to the right-click **Send to** menu instead, edit [`Resources/Decrypt PDFs.lnk`](Resources/Decrypt%20PDFs.lnk)'s target to match your install location (right-click → Properties), then copy it into `shell:sendto` (paste that into the Explorer address bar to open the folder).
 
 ## Usage
 
-1. Right-click a folder or a selection of PDFs → **PDF Tools → Encrypt / Decrypt**.
+1. Right-click a folder or a selection of PDFs → **Decrypt PDFs**.
 2. The tool scans and lists every PDF found, color-coded by status, and automatically tries any stored passwords.
 3. For anything still locked, type a password and hit **Decrypt** - if it works, that password is remembered for next time.
 4. Open **Password Manager** to review, add, or edit stored passwords directly (you'll be asked to confirm your Windows login first).
@@ -40,7 +41,7 @@ Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send
 ## Security notes
 
 - Stored PDF passwords are encrypted with `ProtectedData.Protect` (Windows DPAPI, `CurrentUser` scope) - only your Windows account, on this machine, can decrypt them.
-- The password database lives at `%LocalAppData%\PDFTools\PDFTools.db`, outside the application folder and inaccessible to other Windows accounts on the same machine.
+- The password database lives at `%LocalAppData%\DecryptPDFs\DecryptPDFs.db`, outside the application folder and inaccessible to other Windows accounts on the same machine.
 - Viewing stored passwords in the Password Manager requires re-confirming your Windows credentials, and passwords are masked by default.
 
 ## License
