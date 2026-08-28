@@ -46,4 +46,4 @@ Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send
 
 ## License
 
-Not yet specified.
+[MIT](LICENSE)
