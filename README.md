@@ -13,7 +13,7 @@ Bulk-remove password protection from PDFs, right from Windows Explorer - and it 
 
 ## 🤔 Why I built this
 
-Banks, brokers, insurance, and utilities send a lot of password-protected PDFs view email or webdownload, and every time I spend time working out the correct password - guessing the password, getting it wrong, trying again. Now I just point this at the Download folder and everything decrypts itself.
+Banks, brokers, insurance, and utilities send a lot of password-protected PDFs via email or web download, and every time I spend time working out the correct password - guessing the password, getting it wrong, trying again. Now I just point this at the Download folder and everything decrypts itself.
 
 ## 🔒 How is it secured
 
