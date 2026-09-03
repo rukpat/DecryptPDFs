@@ -57,6 +57,8 @@ Banks, utilities, and financial services send a lot of password-protected PDFs, 
 2. Installs to your own user folder - no admin rights, no UAC prompt.
 3. Choose whether to add the right-click menu and/or "Send to" entry.
 
+Also submitted to [winget](https://github.com/microsoft/winget-pkgs/pull/428934) (pending approval) - once merged, `winget install rukpat.DecryptPDFs` will work directly.
+
 > [!TIP]
 > Windows SmartScreen may warn about an "unrecognized publisher" since the installer isn't code-signed - click **More info → Run anyway**. Normal for any small, unsigned tool.
 
