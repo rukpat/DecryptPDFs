@@ -2,6 +2,11 @@
 
 ### If you deal with encrypted PDF files, you need this.
 
+[![Latest release](https://img.shields.io/github/v/release/rukpat/DecryptPDFs)](../../releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/rukpat/DecryptPDFs/total)](../../releases)
+[![License: MIT](https://img.shields.io/github/license/rukpat/DecryptPDFs)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-windows-0078D6?logo=windows)](#requirements)
+
 Bulk-remove password protection from PDFs, right from Windows Explorer - and it learns your passwords so it gets faster every time.
 
 ![Main window](Resources/Readme%20Images/MainWindow.png)
