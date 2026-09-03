@@ -1,6 +1,6 @@
 #define MyAppName "Decrypt PDFs"
 #define MyAppVersion "2.0.2"
-#define MyAppPublisher "rukpat"
+#define MyAppPublisher "Rukesh Patel"
 #define MyAppURL "https://github.com/rukpat/DecryptPDFs"
 #define MyAppExeName "DecryptPDFs.exe"
 

@@ -76,7 +76,7 @@
             listFilesFolders.Location = new Point(251, 12);
             listFilesFolders.Name = "listFilesFolders";
             listFilesFolders.ShowItemToolTips = true;
-            listFilesFolders.Size = new Size(661, 542);
+            listFilesFolders.Size = new Size(813, 529);
             listFilesFolders.TabIndex = 1;
             listFilesFolders.UseCompatibleStateImageBehavior = false;
             listFilesFolders.View = View.Details;
@@ -106,7 +106,7 @@
             linkLabelFolderName.AutoSize = true;
             linkLabelFolderName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             linkLabelFolderName.LinkColor = Color.FromArgb(128, 128, 255);
-            linkLabelFolderName.Location = new Point(251, 585);
+            linkLabelFolderName.Location = new Point(251, 572);
             linkLabelFolderName.Name = "linkLabelFolderName";
             linkLabelFolderName.Size = new Size(51, 15);
             linkLabelFolderName.TabIndex = 7;
@@ -119,7 +119,7 @@
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(787, 585);
+            label1.Location = new Point(939, 572);
             label1.Name = "label1";
             label1.Size = new Size(125, 15);
             label1.TabIndex = 9;
@@ -145,9 +145,10 @@
             groupBoxOverwrite.Controls.Add(radioButtonPrefix);
             groupBoxOverwrite.Controls.Add(textBoxOverwriteString);
             groupBoxOverwrite.Controls.Add(radioButtonSuffix);
+            groupBoxOverwrite.Controls.Add(checkBoxOverwrite);
             groupBoxOverwrite.FlatStyle = FlatStyle.Popup;
             groupBoxOverwrite.ForeColor = Color.WhiteSmoke;
-            groupBoxOverwrite.Location = new Point(12, 179);
+            groupBoxOverwrite.Location = new Point(10, 177);
             groupBoxOverwrite.Name = "groupBoxOverwrite";
             groupBoxOverwrite.Size = new Size(225, 99);
             groupBoxOverwrite.TabIndex = 10;
@@ -195,7 +196,7 @@
             // checkBoxOverwrite
             // 
             checkBoxOverwrite.AutoSize = true;
-            checkBoxOverwrite.Location = new Point(11, 175);
+            checkBoxOverwrite.Location = new Point(6, 0);
             checkBoxOverwrite.Name = "checkBoxOverwrite";
             checkBoxOverwrite.Size = new Size(98, 19);
             checkBoxOverwrite.TabIndex = 2;
@@ -213,7 +214,7 @@
             buttonDecrypt.ForeColor = Color.Black;
             buttonDecrypt.Image = Properties.Resources.nS16;
             buttonDecrypt.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDecrypt.Location = new Point(138, 570);
+            buttonDecrypt.Location = new Point(138, 557);
             buttonDecrypt.Name = "buttonDecrypt";
             buttonDecrypt.Size = new Size(100, 30);
             buttonDecrypt.TabIndex = 2;
@@ -230,7 +231,7 @@
             buttonClose.FlatStyle = FlatStyle.Popup;
             buttonClose.ForeColor = Color.WhiteSmoke;
             buttonClose.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonClose.Location = new Point(12, 570);
+            buttonClose.Location = new Point(12, 557);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(100, 30);
             buttonClose.TabIndex = 6;
@@ -241,7 +242,7 @@
             // checkBoxRecurseDir
             // 
             checkBoxRecurseDir.AutoSize = true;
-            checkBoxRecurseDir.Location = new Point(12, 65);
+            checkBoxRecurseDir.Location = new Point(14, 65);
             checkBoxRecurseDir.Name = "checkBoxRecurseDir";
             checkBoxRecurseDir.Size = new Size(118, 19);
             checkBoxRecurseDir.TabIndex = 11;
@@ -251,7 +252,6 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
@@ -260,7 +260,7 @@
             panel1.Controls.Add(labelCountPasswordProtected);
             panel1.Controls.Add(labelCountHasSecuritySettings);
             panel1.Controls.Add(labelCountNoSecurity);
-            panel1.Location = new Point(12, 465);
+            panel1.Location = new Point(10, 313);
             panel1.Name = "panel1";
             panel1.Size = new Size(225, 89);
             panel1.TabIndex = 12;
@@ -352,12 +352,13 @@
             // checkBoxRemoveSecurity
             // 
             checkBoxRemoveSecurity.AutoSize = true;
-            checkBoxRemoveSecurity.Location = new Point(12, 133);
+            checkBoxRemoveSecurity.Location = new Point(14, 121);
             checkBoxRemoveSecurity.Name = "checkBoxRemoveSecurity";
             checkBoxRemoveSecurity.Size = new Size(159, 19);
             checkBoxRemoveSecurity.TabIndex = 13;
             checkBoxRemoveSecurity.Text = "Remove Security Settings";
             checkBoxRemoveSecurity.UseVisualStyleBackColor = true;
+            checkBoxRemoveSecurity.CheckedChanged += checkBoxRemoveSecurity_CheckedChanged;
             // 
             // btnOpenPWDMgr
             // 
@@ -368,16 +369,16 @@
             btnOpenPWDMgr.FlatStyle = FlatStyle.Popup;
             btnOpenPWDMgr.ForeColor = Color.WhiteSmoke;
             btnOpenPWDMgr.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOpenPWDMgr.Location = new Point(12, 331);
+            btnOpenPWDMgr.Location = new Point(12, 463);
             btnOpenPWDMgr.Name = "btnOpenPWDMgr";
             btnOpenPWDMgr.Size = new Size(225, 30);
             btnOpenPWDMgr.TabIndex = 15;
             btnOpenPWDMgr.Text = "&Password Manager...";
             btnOpenPWDMgr.UseVisualStyleBackColor = false;
             btnOpenPWDMgr.Click += btnOpenPWDMgr_Click;
-            //
+            // 
             // btnSelectFiles
-            //
+            // 
             btnSelectFiles.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnSelectFiles.BackColor = Color.Transparent;
             btnSelectFiles.BackgroundImageLayout = ImageLayout.Zoom;
@@ -385,27 +386,27 @@
             btnSelectFiles.FlatStyle = FlatStyle.Popup;
             btnSelectFiles.ForeColor = Color.WhiteSmoke;
             btnSelectFiles.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSelectFiles.Location = new Point(12, 380);
+            btnSelectFiles.Location = new Point(12, 511);
             btnSelectFiles.Name = "btnSelectFiles";
             btnSelectFiles.Size = new Size(225, 30);
             btnSelectFiles.TabIndex = 16;
-            btnSelectFiles.Text = "&Select PDF Files...";
+            btnSelectFiles.Text = "&Open PDF Files...";
             btnSelectFiles.UseVisualStyleBackColor = false;
             btnSelectFiles.Click += btnSelectFiles_Click;
-            //
+            // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { statusLabel });
-            statusStrip1.Location = new Point(0, 612);
+            statusStrip1.Location = new Point(0, 599);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(924, 22);
+            statusStrip1.Size = new Size(1076, 22);
             statusStrip1.TabIndex = 16;
             statusStrip1.Text = "statusStrip1";
             // 
             // statusLabel
             // 
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(909, 17);
+            statusLabel.Size = new Size(1061, 17);
             statusLabel.Spring = true;
             statusLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -416,13 +417,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
             CancelButton = buttonClose;
-            ClientSize = new Size(924, 634);
+            ClientSize = new Size(1076, 621);
             Controls.Add(btnOpenPWDMgr);
             Controls.Add(btnSelectFiles);
             Controls.Add(checkBoxRemoveSecurity);
             Controls.Add(checkBoxRecurseDir);
             Controls.Add(buttonClose);
-            Controls.Add(checkBoxOverwrite);
             Controls.Add(buttonDecrypt);
             Controls.Add(textBoxPassword);
             Controls.Add(label1);

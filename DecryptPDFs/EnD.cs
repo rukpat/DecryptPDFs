@@ -829,5 +829,10 @@ namespace DecryptPDFs
 
             RunScanAndAutoDecrypt(AutoDecryptWithStoredPasswords);
         }
+
+        private void checkBoxRemoveSecurity_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
