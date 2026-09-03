@@ -1,6 +1,6 @@
 # ![icon](DecryptPDFs/Resources/nS48.png) Decrypt PDFs
 
-### If you deal with encrypted PDF files, you need this.
+### If you deal with encrypted PDF files, you need this!
 
 [![Latest release](https://img.shields.io/github/v/release/rukpat/DecryptPDFs)](../../releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/rukpat/DecryptPDFs/total)](../../releases)
@@ -13,20 +13,20 @@ Bulk-remove password protection from PDFs, right from Windows Explorer - and it 
 
 ## 🤔 Why I built this
 
-Banks, utilities, and financial services send a lot of password-protected PDFs, and every time one landed I was guessing the password, getting it wrong, trying again. Now I just point this at my Downloads folder and everything decrypts itself.
+Banks, brokers, insurance, and utilities send a lot of password-protected PDFs view email or webdownload, and every time I spend time working out the correct password - guessing the password, getting it wrong, trying again. Now I just point this at the Download folder and everything decrypts itself.
 
 ## 🔒 How is it secured
 
 ![Windows credential prompt](Resources/Readme%20Images/WindowsCredentialPrompt.png)
 
+- **Gated access:** re-confirm your Windows login (password, PIN, or Hello) to open the Password Manager.
+- **Local only:** no cloud sync, no telemetry, no network calls - only to your windows user login.
 - **Encrypted at rest:** Windows DPAPI, tied to your Windows login only.
 - **Masked by default:** passwords show as `********` until you reveal them.
-- **Gated access:** re-confirm your Windows login (password, PIN, or Hello) to open the Password Manager.
-- **Local only:** no cloud sync, no telemetry, no network calls.
 - **No admin rights needed:** installer writes to your user registry hive only.
 
 > [!CAUTION]
-> Only use this on PDFs you have the legal right to access - your own statements, bills, and documents.
+> Only use this on PDFs you have the legal right to access - your own documents.
 
 ## ⚡ Features
 
