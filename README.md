@@ -9,7 +9,7 @@
 
 Bulk-remove password protection from PDFs, right from Windows Explorer - and it learns your passwords so it gets faster every time.
 
-![Main window](Resources/Readme%20Images/MainWindow.png)
+![Demo](Resources/Readme%20Images/Demo.gif)
 
 ## 🤔 Why I built this
 
