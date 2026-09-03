@@ -58,7 +58,20 @@ Write-Host "=== Decrypt PDFs - Release Builder ===" -ForegroundColor Cyan
 Write-Host ""
 
 if (-not $Version) {
-    $Version = Read-Host "Enter the version to release (e.g. 2.0.4)"
+    Push-Location $RepoRoot
+    try {
+        $latestTag = git tag -l "v*" --sort=-v:refname | Select-Object -First 1
+    }
+    finally {
+        Pop-Location
+    }
+
+    if ($latestTag) {
+        $Version = Read-Host "Enter the version to release (previous release was $latestTag)"
+    }
+    else {
+        $Version = Read-Host "Enter the version to release (e.g. 2.0.4)"
+    }
 }
 
 if ($Version -notmatch '^\d+\.\d+\.\d+$') {
