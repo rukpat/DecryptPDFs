@@ -1,5 +1,7 @@
 # ![icon](DecryptPDFs/Resources/nS48.png) Decrypt PDFs
 
+### If you deal with encrypted PDF files, you need this.
+
 Bulk-remove password protection from PDFs, right from Windows Explorer - and it learns your passwords so it gets faster every time.
 
 ![Main window](Resources/Readme%20Images/MainWindow.png)
@@ -37,7 +39,7 @@ Banks, utilities, and financial services send a lot of password-protected PDFs, 
 2. Next scan, every stored password gets tried, most-successful-first.
 3. First match wins - decrypts and moves to the next file.
 
-## Requirements
+## 🖥️ Requirements
 
 - Windows
 - [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) (framework-dependent build)
