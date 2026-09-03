@@ -4,16 +4,43 @@ A Windows utility for finding and removing password protection / security restri
 
 Right-click a folder or a batch of PDFs in Explorer (via a context-menu or "Send to" entry), and it scans them, tells you which ones are password-protected or have restricted permissions, and can strip that protection - either with a password you type in, or automatically using passwords it already knows.
 
+## Why I built this
+
+Banks, utilities, and financial services all password-protect the PDFs they send - statements, invoices, bills - and almost every sender reuses the same handful of password patterns (a date of birth, an account number, a postcode). Every time one landed, I was doing the same thing: guess which pattern this particular company used, type it in, get it wrong, try the next.
+
+This tool exists so I stopped doing that guessing by hand. Point it at a folder - your Downloads folder, wherever these things pile up - and it works out which files are locked, tries every password it's already learned against them, and decrypts whatever matches. The first time a new sender's password shows up, you type it in once; every file from that sender from then on just opens.
+
 ## Features
 
 - **Bulk scan** a folder (optionally recursive) or a set of selected files, classifying each PDF as: no security, has security settings (owner-password-only restrictions), password protected, or error.
-- **Auto-decrypt on open**: on load, automatically tries stored passwords against every password-protected file it finds, most-likely-to-work first (ranked by how often and how recently each password has actually succeeded).
-- **Remembers passwords automatically**: any password you type in manually that successfully decrypts a file is saved for next time - no separate step required.
-- **Password Manager**: a CRUD screen for the stored passwords (nickname, description, usage stats), gated behind your Windows login (password, PIN, or Windows Hello) and hidden by default (toggle to reveal).
-- **Encrypted at rest**: stored passwords are encrypted with Windows DPAPI, tied to your Windows account - the database file itself is unreadable outside your own login on this machine.
+- **Auto-decrypt on open**: on load, automatically tries stored passwords against every password-protected file it finds, most-likely-to-work first - see [how it learns](#how-it-learns-and-auto-decrypts-your-passwords) below.
+- **Password Manager**: a CRUD screen for the stored passwords (nickname, description, usage stats), gated behind your Windows login and hidden by default - see [Security](#security) below.
 - **Remove security settings** too (optional), not just password-protected files.
 - **Overwrite in place, or write out with a prefix/suffix**, your choice.
 - **Live progress and cancel**: a status bar shows what it's doing (file X of Y, password X of Y); press **S** at any time to stop.
+
+## How it learns and auto-decrypts your passwords
+
+The first time you hit a file with a password you don't have stored, type it into the password box and click **Decrypt**. If it works, that password is saved automatically - there's no separate "add to password manager" step.
+
+From then on, every time it scans a folder, the tool:
+
+1. Pulls every password it's ever stored, ranked by how often - and how recently - each one has actually worked.
+2. Tries them against each password-protected file it finds, most-likely-first, until one succeeds or the list runs out.
+3. Decrypts on the first match and moves straight to the next file - no prompts, no waiting on you.
+
+So the more you use it, the less you have to think about it: the password that works for every statement from one sender gets tried first against every future file from that same sender, and a password you first used somewhere else entirely can end up matching a file you've never seen before, automatically.
+
+## Security
+
+Since this tool exists specifically to store and reuse your passwords, here's exactly what it does - and doesn't do - with them:
+
+- **Encrypted at rest with Windows DPAPI** (`ProtectedData.Protect`, `CurrentUser` scope) - every password is encrypted before it ever touches disk, using a key tied to your Windows login. Nobody without your Windows account - not another user on the same PC, not someone who copies the database file elsewhere - can decrypt it.
+- **Stored outside the app**, at `%LocalAppData%\DecryptPDFs\DecryptPDFs.db` - a per-user folder that other Windows accounts on the same machine can't read, independent of wherever the app itself is installed.
+- **Masked by default in the UI**: the Password Manager shows `********` for every stored password until you explicitly check "Show Passwords."
+- **Gated behind your Windows login**: opening the Password Manager at all requires re-confirming your Windows credentials (password, PIN, or Windows Hello), via the same native "Windows Security" prompt Windows uses elsewhere - not a login this app invented itself.
+- **Never leaves your machine**: no cloud sync, no telemetry, no network calls of any kind. Whatever it learns stays local.
+- **Installer runs without admin rights**: it writes its Explorer integration to your per-user registry hive (`HKEY_CURRENT_USER`), not system-wide - no UAC prompt, and nothing it does affects other accounts on the machine.
 
 ## Requirements
 
@@ -46,16 +73,10 @@ The installer script itself is at [`installer/DecryptPDFs.iss`](installer/Decryp
 
 ## Usage
 
-1. Right-click a folder or a selection of PDFs → **Decrypt PDFs**.
+1. Right-click a folder or a selection of PDFs → **Decrypt PDFs** (or launch it from the Start Menu and click **Open PDF Files...** to browse for files directly).
 2. The tool scans and lists every PDF found, color-coded by status, and automatically tries any stored passwords.
 3. For anything still locked, type a password and hit **Decrypt** - if it works, that password is remembered for next time.
 4. Open **Password Manager** to review, add, or edit stored passwords directly (you'll be asked to confirm your Windows login first).
-
-## Security notes
-
-- Stored PDF passwords are encrypted with `ProtectedData.Protect` (Windows DPAPI, `CurrentUser` scope) - only your Windows account, on this machine, can decrypt them.
-- The password database lives at `%LocalAppData%\DecryptPDFs\DecryptPDFs.db`, outside the application folder and inaccessible to other Windows accounts on the same machine.
-- Viewing stored passwords in the Password Manager requires re-confirming your Windows credentials, and passwords are masked by default.
 
 ## License
 
