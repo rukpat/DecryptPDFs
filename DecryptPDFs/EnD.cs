@@ -46,16 +46,6 @@ namespace DecryptPDFs
                 this.WindowState = windowState;
             }
 
-            // Ensure the form is within the screen bounds
-            /*var screen = Screen.FromControl(this);
-            if (this.Left < screen.Bounds.Left || this.Right > screen.Bounds.Right ||
-                this.Top < screen.Bounds.Top || this.Bottom > screen.Bounds.Bottom)
-            {
-                this.Left = screen.Bounds.Left + 100;
-                this.Top = screen.Bounds.Top + 100;
-            }*/
-
-
             //Initialise form controls
             checkBoxOverwrite.Checked = Settings.Default.Overwrite;
             groupBoxOverwrite.Visible = Settings.Default.Overwrite ? false : true;
@@ -63,7 +53,6 @@ namespace DecryptPDFs
             radioButtonPrefix.Checked = Settings.Default.OverwritePrefixSuffix == 'P' ? true : false;
             radioButtonSuffix.Checked = Settings.Default.OverwritePrefixSuffix == 'S' ? true : false;
             textBoxOverwriteString.PlaceholderText = "Enter " + (Settings.Default.OverwritePrefixSuffix == 'P' ? "Prefix" : "Suffix");
-            //checkBoxRecurseDir.Checked = Settings.Default.RecurseDirectory;
             textBoxPassword.Text = "Enter Password";
             textBoxPassword.Focus();
             textBoxPassword.SelectAll();
@@ -189,7 +178,6 @@ namespace DecryptPDFs
             Settings.Default.Overwrite = checkBoxOverwrite.Checked;
             Settings.Default.OverwritePrefixSuffix = radioButtonPrefix.Checked ? 'P' : 'S';
             Settings.Default.OverwritePrefixSuffixName = textBoxOverwriteString.Text;
-            //Settings.Default.RecurseDirectory = checkBoxRecurseDir.Checked;
             Settings.Default.Save();
 
             dbContext.Dispose();
@@ -355,7 +343,6 @@ namespace DecryptPDFs
                 {
                     // Get all files in the directory
                     var searchOption = checkBoxRecurseDir.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-                    //string[] files = Directory.GetFiles(path);
                     string[] files = Directory.GetFiles(path, "*.pdf", searchOption);
                     foreach (var file in files)
                     {
@@ -512,19 +499,6 @@ namespace DecryptPDFs
 
                         // Remove security settings
                         document.SecuritySettings.DocumentSecurityLevel = PdfDocumentSecurityLevel.None;
-                        // Additional permissions can be set as needed
-                        /*document.SecuritySettings.PermitPrint = true;
-                        document.SecuritySettings.PermitFullQualityPrint = true;
-                        document.SecuritySettings.PermitAssembleDocument = true;
-                        document.SecuritySettings.PermitExtractContent = true;
-                        document.SecuritySettings.PermitAccessibilityExtractContent = true;
-                        document.SecuritySettings.PermitModifyDocument = true;
-                        document.SecuritySettings.PermitAnnotations = true;
-                        document.SecuritySettings.PermitFormsFill = true;
-                        document.SecuritySettings.PermitContentCopy = true;
-                        document.SecuritySettings.PermitAll(); 
-                        */
-                        // Save Decrypted File
                         // Construct the new file path based on the controls' values
                         string newFilePath = ConstructDecryptedFilePath(filePath);
 
@@ -828,11 +802,6 @@ namespace DecryptPDFs
             hasAutoDecryptedOnRecurseToggle = false;
 
             RunScanAndAutoDecrypt(AutoDecryptWithStoredPasswords);
-        }
-
-        private void checkBoxRemoveSecurity_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

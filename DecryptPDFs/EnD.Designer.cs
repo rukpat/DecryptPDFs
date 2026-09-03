@@ -358,8 +358,7 @@
             checkBoxRemoveSecurity.TabIndex = 13;
             checkBoxRemoveSecurity.Text = "Remove Security Settings";
             checkBoxRemoveSecurity.UseVisualStyleBackColor = true;
-            checkBoxRemoveSecurity.CheckedChanged += checkBoxRemoveSecurity_CheckedChanged;
-            // 
+            //
             // btnOpenPWDMgr
             // 
             btnOpenPWDMgr.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
